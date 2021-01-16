@@ -1,0 +1,38 @@
+26-11-2020 -> 05:49:26 PM: Requested Add user with name - Niv Swisa
+26-11-2020 -> 05:49:35 PM: Requested DELETE user with id - 1001
+26-11-2020 -> 05:49:53 PM: Requested Update user id: 1 name - Niv Swisa
+26-11-2020 -> 07:05:45 PM: Requested GET user with id: 1 name - Claribel Laffin
+26-11-2020 -> 07:06:34 PM: Requested GET user with id: 1 name - Claribel Laffin
+26-11-2020 -> 07:06:54 PM: Requested GET user with id: 1 name - Claribel Laffin
+26-11-2020 -> 07:07:03 PM: Asked for GET request for all users
+26-11-2020 -> 07:21:36 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:22:26 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:26:59 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:27:11 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:27:29 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:27:49 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:28:22 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:28:35 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:29:28 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:57:20 PM: Requested DELETE user with id - 1002
+26-11-2020 -> 07:57:32 PM: Requested DELETE user with id - 1200
+26-11-2020 -> 07:59:36 PM: Requested GET user with id: 1200
+26-11-2020 -> 08:03:04 PM: Requested DELETE but invalid id - 1200
+26-11-2020 -> 08:05:44 PM: Asked for GET request for all users
+26-11-2020 -> 08:05:45 PM: Entering to defualt page
+26-11-2020 -> 08:07:40 PM: Entering to defualt page
+26-11-2020 -> 08:07:40 PM: Asked for GET request for all users
+26-11-2020 -> 08:07:44 PM: Asked for GET request for all users
+26-11-2020 -> 08:07:45 PM: Entering to defualt page
+26-11-2020 -> 08:11:59 PM: Entering to defualt page
+26-11-2020 -> 08:11:59 PM: Asked for GET request for all users
+26-11-2020 -> 08:14:39 PM: Asked for GET request for all users
+26-11-2020 -> 10:07:44 PM: Requested Add user with name - Yahli Sofer
+26-11-2020 -> 10:08:08 PM: Entering to defualt page
+26-11-2020 -> 10:10:40 PM: Entering to defualt page
+26-11-2020 -> 10:11:37 PM: Asked for GET request for all users
+26-11-2020 -> 10:12:14 PM: Requested Add user with name - Yahli Sofer
+26-11-2020 -> 10:12:53 PM: Requested Update user id: 1 name - Yahli Sofer
+26-11-2020 -> 10:13:14 PM: Requested DELETE user with id - 1
+27-11-2020 -> 12:16:36 AM: Requested GET user with id: 100
+17-12-2020 -> 05:54:15 PM: Entering to defualt page
