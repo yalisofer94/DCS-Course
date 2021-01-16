@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Main from './Components/main';
+import DeliveryList from './Components/deliveryList';
 ReactDOM.render(
-  <Main />,
+  <DeliveryList />,
   document.getElementById('root')
 );
 
