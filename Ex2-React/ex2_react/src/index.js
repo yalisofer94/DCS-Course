@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 //import Main from './Components/main';
-import DeliveryList from './Components/deliveryList';
+//import DeliveryList from './Components/deliveryList';
+import Base from './Components/mainComp';
 ReactDOM.render(
-  <DeliveryList />,
+  <Base />,
   document.getElementById('root')
 );
 

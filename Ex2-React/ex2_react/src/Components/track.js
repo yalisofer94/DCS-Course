@@ -4,7 +4,7 @@ import truck from './../images/Track.jpeg';
 class Truck extends Component {
     render() {
         return(
-            <img src={truck} alt="Truck!"/>
+            <img src={truck} alt="Truck!" style={{paddingTop:'12%',paddingRight:'30%'}}/>
         );
     }
 }

@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import {MdDelete, MdEdit} from 'react-icons/md';
 import {Fab} from '@material-ui/core';
 
+const buttonStyles = {
+    border: 'none',
+    background: 'none',
+    marginRight:'1px'
+}
 class Delivery extends Component {
 constructor(props){
     super(props);
@@ -31,8 +36,8 @@ render() {
         <div className="order">
             {this.props.children}
             <span>
-                    <button onClick={this.edit} style={{marginRight:'7px'}}><Fab size="small" color="secondary" aria-label="delete"><MdEdit/></Fab></button> 
-                    <button onClick={this.delete}><Fab size="small" color="secondary" aria-label="delete"><MdDelete/></Fab></button>
+                    <button onClick={this.edit} style={{marginRight:'7px'} ,buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit/></Fab></button> 
+                    <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete/></Fab></button>
             </span>
         </div>
 

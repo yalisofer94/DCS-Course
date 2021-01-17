@@ -3,7 +3,23 @@ import Main from './main';
 import orders from './../Data/orders.json';
 import Delivery from './delivery';
 import Truck from './../Components/track';
+import backGround from './../images/background.png';
 
+const divStyle = {
+    backgroundImage: `url(${backGround})`,
+    width: '60%',
+    height: '50%',
+    marginRight: '0px',
+    backgroundRepeat  : 'no-repeat'
+}
+
+const listStyle = {
+    background:'white',
+    display: 'inline-block',
+    height:'550px',
+    marginLeft:'15%',
+    marginTop:'5%'
+}
 
 class DeliveryList extends Component {
     constructor(props) {
@@ -61,18 +77,20 @@ class DeliveryList extends Component {
                 <span style={{margin:"15px"}}>{item.id}</span>
                 <span style={{marginRight:"15px"}}>{item.date}</span>
                 <span style={{marginRight:"15px"}}>{item.name}</span>
-                <span style={{marginRight:"15px"}}>{item.city}</span>
+                <span style={{marginRight:"30px"}}>{item.city}</span>
             </span>
             </Delivery>
         }
 
     render() {
         return (
-                <>
-                <Main/>
-                { this.state.orders.map(this.eachOrder) }
+                <div style={divStyle}>
+                    <div style={listStyle}>
+                    { this.state.orders.map(this.eachOrder) }
+                    </div>
+                
                 <Truck/>
-                </>
+                </div>
         )
     }
 }
