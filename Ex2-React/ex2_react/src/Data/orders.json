@@ -1,5 +1,5 @@
 [
-    {"date":"01.01.2021", "name": "John Doe", "city": "Tel Aviv"},
-    {"date":"05.01.2021" ,"name": "John Doe", "city": "Ra'anana"},
-    {"date":"06.01.2021", "name": "John Doe", "city": "Ramat-Gan"}
+    {"id":1,"date":"01.01.2021", "name": "John Doe", "city": "Tel Aviv"},
+    {"id":2,"date":"05.01.2021" ,"name": "John Doe", "city": "Ra'anana"},
+    {"id":3,"date":"06.01.2021", "name": "John Doe", "city": "Ramat-Gan"}
 ]

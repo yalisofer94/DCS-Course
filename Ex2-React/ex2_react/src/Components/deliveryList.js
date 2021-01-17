@@ -2,10 +2,8 @@ import React, { Component} from 'react';
 import Main from './main';
 import orders from './../Data/orders.json';
 import Delivery from './delivery';
+import Truck from './../Components/track';
 
-const styles = {
-
-}
 
 class DeliveryList extends Component {
     constructor(props) {
@@ -58,23 +56,23 @@ class DeliveryList extends Component {
     }
 
     eachOrder(item,i) {
-        return <Delivery key={i} index={item.date} onChange={this.update} onDelete={this.delete} style={{display:'inline'}}>
-            <div>
-                <span style={{marginLeft:"7px"}}>{item.id}</span>
-                <span>{item.date}</span>
-                <span>{item.name}</span>
-                <span>{item.city}</span>
-            </div>
+        return <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
+            <span style={{marginTop:'10px'}}>
+                <span style={{margin:"15px"}}>{item.id}</span>
+                <span style={{marginRight:"15px"}}>{item.date}</span>
+                <span style={{marginRight:"15px"}}>{item.name}</span>
+                <span style={{marginRight:"15px"}}>{item.city}</span>
+            </span>
             </Delivery>
         }
 
     render() {
         return (
-            <div className="Delivery-List">
+                <>
                 <Main/>
                 { this.state.orders.map(this.eachOrder) }
-
-            </div>
+                <Truck/>
+                </>
         )
     }
 }

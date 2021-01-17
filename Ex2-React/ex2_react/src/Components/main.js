@@ -4,10 +4,10 @@ import background from './../images/background.png';
 class Main extends Component {
     render() {
         return (
-            <div style={{marginTop:'100px',display: "flex",
-            justifyContent: "space-evenly"}}>
+            <span style={{marginTop:'100px',display: "flex",
+            justifyContent: "space-evenly", width: "60%", height: "45%"}}>
                 <img src={background} alt="background"/>
-            </div>
+            </span>
         )
     }
 }
