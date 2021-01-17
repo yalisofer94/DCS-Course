@@ -30,9 +30,6 @@ edit() {
 }
 render() {
     return (
-        //<div className="order">
-        //    {this.props.children}
-        //</div>
         <div className="order">
             {this.props.children}
             <span>

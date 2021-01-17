@@ -1,24 +1,31 @@
 import React, { Component} from 'react';
-import Main from './main';
 import orders from './../Data/orders.json';
 import Delivery from './delivery';
-import Truck from './../Components/track';
-import backGround from './../images/background.png';
+import backGround from './../images/Scene.png';
+import DeliveryForm from './deliveryForm';
+
 
 const divStyle = {
     backgroundImage: `url(${backGround})`,
-    width: '60%',
-    height: '50%',
-    marginRight: '0px',
-    backgroundRepeat  : 'no-repeat'
+    backgroundRepeat  : 'no-repeat',
+    //display: 'flex',
+    //flexFlow: 'row nowrap',
+    width: '100%',
+    height:'800px',
+    position: 'absolute',
+    right:'-40%',
+    //top: 0
+
 }
 
 const listStyle = {
     background:'white',
     display: 'inline-block',
-    height:'550px',
-    marginLeft:'15%',
-    marginTop:'5%'
+    height:'582px',
+    marginLeft:'9%',
+    position:'relative',
+    marginTop:'6%',
+    borderRadius:'15px',
 }
 
 class DeliveryList extends Component {
@@ -68,7 +75,6 @@ class DeliveryList extends Component {
                 order => order.id !== i ? order :{...order, order: newOrder}
             )
         }))
-
     }
 
     eachOrder(item,i) {
@@ -89,7 +95,6 @@ class DeliveryList extends Component {
                     { this.state.orders.map(this.eachOrder) }
                     </div>
                 
-                <Truck/>
                 </div>
         )
     }
