@@ -1,30 +1,14 @@
 import React, { Component} from 'react';
 import orders from './../Data/orders.json';
 import Delivery from './delivery';
-import backGround from './../images/Scene.png';
-import DeliveryForm from './deliveryForm';
-
-
-const divStyle = {
-    backgroundImage: `url(${backGround})`,
-    backgroundRepeat  : 'no-repeat',
-    //display: 'flex',
-    //flexFlow: 'row nowrap',
-    width: '100%',
-    height:'800px',
-    position: 'absolute',
-    right:'-40%',
-    //top: 0
-
-}
 
 const listStyle = {
     background:'white',
     display: 'inline-block',
     height:'582px',
-    marginLeft:'9%',
+/*     marginLeft:'9%',
     position:'relative',
-    marginTop:'6%',
+    marginTop:'6%', */
     borderRadius:'15px',
 }
 
@@ -38,6 +22,7 @@ class DeliveryList extends Component {
         this.add = this.add.bind(this);
         this.nextId = this.nextId.bind(this);
         this.delete = this.delete.bind(this);
+        this.edit = this.edit.bind(this);
     }
 
     add({id=null ,date='01.01.2021', name='John Does', city='EveryWhere'}) {
@@ -66,6 +51,10 @@ class DeliveryList extends Component {
             orders: prevState.orders.filter(order => order.id !== id)
         }))
     }
+    edit(id){
+        const object = orders.filter((order) => order.id === id);
+        this.props.editOn(object);
+    }
 
     update(newOrder,i) {
         console.log(`Update ${i}: newOrder: ${newOrder}`);
@@ -78,7 +67,7 @@ class DeliveryList extends Component {
     }
 
     eachOrder(item,i) {
-        return <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
+        return <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete} onEdit={this.edit}>
             <span style={{marginTop:'10px'}}>
                 <span style={{margin:"15px"}}>{item.id}</span>
                 <span style={{marginRight:"15px"}}>{item.date}</span>
@@ -90,12 +79,9 @@ class DeliveryList extends Component {
 
     render() {
         return (
-                <div style={divStyle}>
-                    <div style={listStyle}>
-                    { this.state.orders.map(this.eachOrder) }
-                    </div>
-                
-                </div>
+            <div style={listStyle}>
+            { this.state.orders.map(this.eachOrder) }
+            </div>
         )
     }
 }

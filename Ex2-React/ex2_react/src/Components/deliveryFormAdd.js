@@ -12,13 +12,13 @@ const textFieldStyle = {
 const formStyle = {
     position:'absolute', 
 }
-const DeliveryForm = (props) => {
+const DeliveryFormAdd = (props) => {
     console.log(props);
         return (
             <form style={formStyle}>
                 <TextField
                     id="outlined-date-input"
-                    label={props.date}
+                    label=''
                     type="date"
                     autoComplete="current-date"
                     variant="outlined"
@@ -37,7 +37,7 @@ const DeliveryForm = (props) => {
                 <br/>
                 <TextField
                     id="outlined-city-input"
-                    label={props.location}
+                    label=''
                     type="text"
                     autoComplete="current-city"
                     variant="outlined"
@@ -50,4 +50,4 @@ const DeliveryForm = (props) => {
         );
     }
 
-export default DeliveryForm;
+export default DeliveryFormAdd;

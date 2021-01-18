@@ -12,9 +12,6 @@ class Delivery extends Component {
 constructor(props){
     super(props);
 
-    this.state = {
-        editing: false
-    }
     this.delete = this.delete.bind(this);
     this.edit = this.edit.bind(this);
 }
@@ -25,7 +22,7 @@ delete() {
 }
 
 edit() {
-    this.setState({ editing: true});
+    this.props.onEdit(this.props.index)
     console.log("Edit it!");
 }
 render() {
