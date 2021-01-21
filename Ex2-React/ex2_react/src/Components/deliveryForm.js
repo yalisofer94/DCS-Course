@@ -19,7 +19,7 @@ const DeliveryForm = (props) => {
                 <TextField
                     id="outlined-date-input"
                     label={props.date}
-                    type="date"
+                    type="text"
                     autoComplete="current-date"
                     variant="outlined"
                     style={textFieldStyle}
@@ -45,7 +45,7 @@ const DeliveryForm = (props) => {
                     style={textFieldStyle}
                 />
                 <br/>
-                <Button variant="contained" color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Save</Button>
+                <Button variant="contained" color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Update</Button>
             </form>
         );
     }

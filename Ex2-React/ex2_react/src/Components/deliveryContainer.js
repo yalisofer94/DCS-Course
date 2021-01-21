@@ -51,8 +51,16 @@ const DeliveryContainer = () => {
             setDate(item[0].date);
         }
 
-        const add = (id=null, date='', name='', city='') => {
-            
+        const add = (newDelivery) => {
+            newDelivery.id = nextId();
+            console.log("HEYYY",newDelivery.id, newDelivery.date);
+
+            setOrder([...orders, newDelivery]);
+        }
+
+        const nextId = ()  => {
+            let max = orders.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0);
+            return ++max;
         }
         
         return (
