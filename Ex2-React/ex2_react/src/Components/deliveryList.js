@@ -51,19 +51,21 @@ class DeliveryList extends Component {
 
     eachOrder(item,i) {
         return <Delivery key={i} index={item.id} name={item.name} date={item.date} city={item.city} onChange={this.update} onDelete={this.props.onDelete} onEdit={this.edit}>
-            <span style={{marginTop:'10px'}}>
-                <span style={{margin:"15px"}}>{item.id}</span>
-                <span style={{marginRight:"15px"}}>{item.date}</span>
-                <span style={{marginRight:"15px"}}>{item.name}</span>
+            <div style={{marginTop:'10px', display:'inline-block'}}>
+                <span style={{margin:"30px"}}>{item.id}</span>
+                <span style={{marginRight:"30px"}}>{item.date}</span>
+                <span style={{marginRight:"30px"}}>{item.name}</span>
                 <span style={{marginRight:"30px"}}>{item.city}</span>
-            </span>
+            </div>
             </Delivery>
         }
 
     render() {
         return (
             <div style={listStyle}>
-            { this.props.orders.map(this.eachOrder) }
+            <p>
+                { this.props.orders.map(this.eachOrder) }
+            </p>
             </div>
         )
     }

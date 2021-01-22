@@ -6,7 +6,7 @@ import {Fab} from '@material-ui/core';
 const buttonStyles = {
     border: 'none',
     background: 'none',
-    marginRight:'1px'
+    marginLeft:'10px',
 }
 class Delivery extends Component {
     constructor(props){
@@ -30,8 +30,8 @@ class Delivery extends Component {
             <div className="order">
                 {this.props.children}
                 <span>
-                        <button onClick={this.edit} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit/></Fab></button> 
-                        <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete/></Fab></button>
+                        <button onClick={this.edit} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit fontSize="large"/></Fab></button> 
+                        <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete fontSize="large"/></Fab></button>
                 </span>
             </div>
 

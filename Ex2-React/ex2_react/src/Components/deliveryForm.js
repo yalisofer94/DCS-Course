@@ -7,13 +7,13 @@ const textFieldStyle = {
     backgroundColor:'white',
     borderRadius:'15px',
     border:'1px solid red', 
-    width:'250px'
+    width:'400px'
 }
 const formStyle = {
     float:'right',
     height:'300px',
     marginRight:'114px',
-    marginTop:'100px' 
+    marginTop:'104px' 
 }
 const DeliveryForm = (props) => {
     const currDelivery = {id:props.id, name:props.name, date:props.date, city:props.city};
