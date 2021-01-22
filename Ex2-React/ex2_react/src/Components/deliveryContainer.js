@@ -8,9 +8,10 @@ import deliveries from './../Data/orders.json';
 const divBackground = {
     backgroundImage: `url(${background})`,
     backgroundRepeat  : 'no-repeat',
-    width: '100%',
     height:'800px',
-    position:'relative',
+    width:'1335px',
+    position:'absolute',
+    right:'0'
 } 
 class DeliveryContainer extends Component {
     constructor(props){

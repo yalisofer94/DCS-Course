@@ -5,10 +5,11 @@ const listStyle = {
     background:'white',
     display: 'inline-block',
     height:'582px',
-/*     marginLeft:'9%',
-    position:'relative',
-    marginTop:'6%', */
+    width:'530px',
     borderRadius:'15px',
+    float:'left',
+    marginTop:'123px',
+    marginLeft:'233px'
 }
 
 class DeliveryList extends Component {

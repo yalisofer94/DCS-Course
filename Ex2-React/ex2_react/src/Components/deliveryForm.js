@@ -10,7 +10,10 @@ const textFieldStyle = {
     width:'250px'
 }
 const formStyle = {
-    position:'absolute', 
+    float:'right',
+    height:'300px',
+    marginRight:'114px',
+    marginTop:'100px' 
 }
 const DeliveryForm = (props) => {
     const currDelivery = {id:props.id, name:props.name, date:props.date, city:props.city};
@@ -27,7 +30,8 @@ const DeliveryForm = (props) => {
     }
 
         return (
-            <form style={formStyle}>
+            <div style={formStyle}>
+            <form >
                 <TextField
                     id="outlined-date-input"
                     type="text"
@@ -63,6 +67,7 @@ const DeliveryForm = (props) => {
                 <br/>
                 <Button variant="contained" onClick={onUpdate} color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Update</Button>
             </form>
+            </div>
         );
     }
 

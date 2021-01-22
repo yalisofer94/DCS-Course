@@ -7,11 +7,14 @@ const textFieldStyle = {
     backgroundColor:'white',
     borderRadius:'15px',
     border:'1px solid red', 
-    width:'250px'
+    width:'400px'
 }
 
 const formStyle = {
-    position:'absolute', 
+    float:'right',
+    height:'300px',
+    marginRight:'114px',
+    marginTop:'104px' 
 }
 
 const DeliveryFormAdd = (props) => {
@@ -71,7 +74,7 @@ const DeliveryFormAdd = (props) => {
                     onChange={inputChange}
                 />
                 <br/>
-                <Button variant="contained" onClick={onSave} color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Save</Button>
+                <Button variant="contained" onClick={onSave} color="secondary" style={{marginLeft:'123px', marginTop:'20px', height:'60px', width:'158px'}} size="large">Save</Button>
             </form>
         );
     }
