@@ -1,10 +1,9 @@
-import React, {useState, useEffect,Component} from 'react';
+import React, {Component} from 'react';
 import DeliveryForm from './../Components/deliveryForm';
 import DeliveryList from './deliveryList';
 import background from './../images/Scene.png';
 import DeliveryFormAdd from './../Components/deliveryFormAdd';
 import deliveries from './../Data/orders.json';
-
 
 const divBackground = {
     backgroundImage: `url(${background})`,
@@ -13,84 +12,96 @@ const divBackground = {
     height:'800px',
     position:'relative',
 } 
+class DeliveryContainer extends Component {
+    constructor(props){
+        super(props);
 
-/* class DeliveryContainer extends Component {
-    render() {
-        return(
-            <div style={divBackground}>
-            <DeliveryList/>
-            <DeliveryForm
-                title={''}
-            />
-            </div>
-        );
+        this.state = {
+            orders: [],
+            inputs: {
+                id: null ,
+                date: '',
+                name: '',
+                city: ''
+            },
+            editing: false
+        }
+
+        this.edit = this.edit.bind(this);
+        this.add = this.add.bind(this);
+        this.nextId = this.nextId.bind(this);
+        this.delete = this.delete.bind(this);
+        this.update = this.update.bind(this);
     }
-} */
 
+    componentDidMount() {
+        deliveries.map(item => this.add({id:item.id, date: item.date, name: item.name, city:item.city}));
+    } 
 
+    edit(id,date,name,city) {
+        this.setState(prevState => ({
+            editing: true,
+            inputs: {
+                id: id,
+                date: date,
+                name:name,
+                city:city   
+            }}))
+    }
 
-const DeliveryContainer = () => {
-    const [orders, setOrder] = useState([]);
-    const [isEdit, setIsEdit] = useState(false);
-    const [title, setTitle] = useState('');
-    const [location, setLocation] = useState('');
-    const [date, setDate] = useState('');
-        const getData = (deliveries) => {
-            deliveries.map(item => setOrder([...orders, item]));
-            console.log("byyy ",orders);
-        }
-        useEffect(()=>{
-            getData(deliveries)
-        },[])
+    delete(id) {
+        this.setState(prevState => ({
+            orders: prevState.orders.filter(order => order.id !== id)
+        }))
+    }
 
+    add({id=null ,date='01.01.2021', name='John Does', city='EveryWhere'}) {
+        this.setState(prevState => ({
+            orders: [
+                ...prevState.orders, {
+                    id: id !== null ? id : this.nextId(prevState.orders),
+                    date: date !== null ? date : this.nextId(prevState.orders),
+                    name: name,
+                    city: city
+                }]
+        }))
+    }
 
-        const edit = (item) => {
-            setIsEdit(true);
-            setTitle(item[0].name);
-            setLocation(item[0].city);
-            setDate(item[0].date);
-        }
+    update(newDelivery, id) {
+        this.setState(prevState => ({
+                editing: false,
+                orders: prevState.orders.map((order) => (order.id === id ? newDelivery : order))
+            }
+        ))
+    }
 
-        const add = (newDelivery) => {
-            newDelivery.id = nextId();
-            console.log("HEYYY",newDelivery.id, newDelivery.date);
+    nextId(orders = []) {
+        let max = orders.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id, 0);
+        return ++max;
+    }
 
-            setOrder([...orders, newDelivery]);
-        }
-
-        const nextId = ()  => {
-            let max = orders.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0);
-            return ++max;
-        }
-        
+    render(){
         return (
             <div style={divBackground}>
                 <DeliveryList
-                    editOn={edit}
+                    editOn={this.edit}
+                    orders={this.state.orders}
+                    onDelete={this.delete}
                 />
-                {!isEdit ?(<DeliveryFormAdd
-                    addDelivery={add}
+                {!this.state.editing ?(
+                <DeliveryFormAdd
+                    addDelivery={this.add}
                 />) 
-                
                 :(<DeliveryForm
-                    isEdit={isEdit}
-                    title={title}
-                    setTitle={setTitle}
-                    location={location}
-                    setLocation={setLocation}
-                    date={date}
-                    setDate={setDate}
-                    //handleAddOrEditClick={handleAddOrEditClick}
+                    id={this.state.inputs.id}
+                    name={this.state.inputs.name}
+                    city={this.state.inputs.city}
+                    date={this.state.inputs.date}
+                    updateOn={this.update}
                 />)}
             </div>
-        ); 
-    }
+        );
+    } 
+}
 
 export default DeliveryContainer;
-    
-
-
-
-
-
-

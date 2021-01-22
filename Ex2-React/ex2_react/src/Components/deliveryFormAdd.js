@@ -9,9 +9,11 @@ const textFieldStyle = {
     border:'1px solid red', 
     width:'250px'
 }
+
 const formStyle = {
     position:'absolute', 
 }
+
 const DeliveryFormAdd = (props) => {
     const emptyDelivery = {id: null, date:'', name:'', city:''};
     const [newDelivery, setNewDelivery] = useState(emptyDelivery);
@@ -31,7 +33,6 @@ const DeliveryFormAdd = (props) => {
         }   
     }
    
-
         return (
             <form style={formStyle}>
                 <TextField

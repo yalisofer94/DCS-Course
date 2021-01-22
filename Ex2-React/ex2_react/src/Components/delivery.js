@@ -9,34 +9,34 @@ const buttonStyles = {
     marginRight:'1px'
 }
 class Delivery extends Component {
-constructor(props){
-    super(props);
+    constructor(props){
+        super(props);
 
-    this.delete = this.delete.bind(this);
-    this.edit = this.edit.bind(this);
-}
+        this.delete = this.delete.bind(this);
+        this.edit = this.edit.bind(this);
+    }
 
-delete() {
-    console.log("Delete it!");
-    this.props.onDelete(this.props.index);
-}
+    delete() {
+        console.log("Delete it!");
+        this.props.onDelete(this.props.index);
+    }
 
-edit() {
-    this.props.onEdit(this.props.index)
-    console.log("Edit it!");
-}
-render() {
-    return (
-        <div className="order">
-            {this.props.children}
-            <span>
-                    <button onClick={this.edit} style={{marginRight:'7px'} ,buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit/></Fab></button> 
-                    <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete/></Fab></button>
-            </span>
-        </div>
+    edit() {
+        this.props.onEdit(this.props.index, this.props.date, this.props.name, this.props.city)
+        console.log("Edit it!");
+    }
+    render() {
+        return (
+            <div className="order">
+                {this.props.children}
+                <span>
+                        <button onClick={this.edit} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit/></Fab></button> 
+                        <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete/></Fab></button>
+                </span>
+            </div>
 
-    )
-}
+        )
+    }
 }
 
 export default Delivery;

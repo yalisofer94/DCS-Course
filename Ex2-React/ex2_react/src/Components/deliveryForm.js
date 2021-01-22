@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -13,39 +13,55 @@ const formStyle = {
     position:'absolute', 
 }
 const DeliveryForm = (props) => {
-    console.log(props);
+    const currDelivery = {id:props.id, name:props.name, date:props.date, city:props.city};
+    const [updatedDelivery, setUpdatedDelivery] = useState(currDelivery);
+    
+    const onUpdate = (event) => {
+        event.preventDefault();
+        props.updateOn(updatedDelivery,props.id);
+    }
+    
+    const inputChange = (info) => {
+        const {name, value} = info.target;
+        setUpdatedDelivery({...updatedDelivery,[name]:value})
+    }
+
         return (
             <form style={formStyle}>
                 <TextField
                     id="outlined-date-input"
-                    label={props.date}
                     type="text"
+                    name="date"
                     autoComplete="current-date"
                     variant="outlined"
+                    onChange={inputChange}
+                    value={updatedDelivery.date}
                     style={textFieldStyle}
                 />
                 <br/>
                 {<TextField
                     id="outlined-name-input"
-                    label=''
                     type="text"
+                    name="name"
                     autoComplete="current-name"
                     variant="outlined"
-                    value={props.title}
+                    onChange={inputChange}
+                    value={updatedDelivery.name}
                     style={textFieldStyle}
                 />}
                 <br/>
                 <TextField
                     id="outlined-city-input"
-                    label={props.location}
                     type="text"
+                    name="city"
                     autoComplete="current-city"
                     variant="outlined"
-                    value={props.city}
+                    onChange={inputChange}
+                    value={updatedDelivery.city}
                     style={textFieldStyle}
                 />
                 <br/>
-                <Button variant="contained" color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Update</Button>
+                <Button variant="contained" onClick={onUpdate} color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Update</Button>
             </form>
         );
     }

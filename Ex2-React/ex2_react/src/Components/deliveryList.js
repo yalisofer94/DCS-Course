@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import orders from './../Data/orders.json';
 import Delivery from './delivery';
 
 const listStyle = {
@@ -16,12 +15,10 @@ class DeliveryList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            orders : []
+            orders : props.orders
         }
         this.eachOrder = this.eachOrder.bind(this);
         this.add = this.add.bind(this);
-        this.nextId = this.nextId.bind(this);
-        this.delete = this.delete.bind(this);
         this.edit = this.edit.bind(this);
     }
 
@@ -37,23 +34,8 @@ class DeliveryList extends Component {
         }))
     }
 
-    componentDidMount() {
-        orders.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
-    }
-
-    nextId(orders = []){
-        let max = orders.reduce((prev, curr) => prev.id > curr.id ? prev.id :curr.id, 0);
-        return ++max
-    }
-
-    delete(id) {
-        this.setState(prevState => ({
-            orders: prevState.orders.filter(order => order.id !== id)
-        }))
-    }
-    edit(id){
-        const object = orders.filter((order) => order.id === id);
-        this.props.editOn(object);
+    edit(id,date, name,city){
+        this.props.editOn(id, date, name,city);
     }
 
     update(newOrder,i) {
@@ -67,7 +49,7 @@ class DeliveryList extends Component {
     }
 
     eachOrder(item,i) {
-        return <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete} onEdit={this.edit}>
+        return <Delivery key={i} index={item.id} name={item.name} date={item.date} city={item.city} onChange={this.update} onDelete={this.props.onDelete} onEdit={this.edit}>
             <span style={{marginTop:'10px'}}>
                 <span style={{margin:"15px"}}>{item.id}</span>
                 <span style={{marginRight:"15px"}}>{item.date}</span>
@@ -80,11 +62,10 @@ class DeliveryList extends Component {
     render() {
         return (
             <div style={listStyle}>
-            { this.state.orders.map(this.eachOrder) }
+            { this.props.orders.map(this.eachOrder) }
             </div>
         )
     }
 }
-
 
 export default DeliveryList;
