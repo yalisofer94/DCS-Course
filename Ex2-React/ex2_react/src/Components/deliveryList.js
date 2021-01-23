@@ -1,5 +1,12 @@
 import React, { Component} from 'react';
 import Delivery from './delivery';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+//import TableHead from '@material-ui/core/TableHead';
+//import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 const listStyle = {
     background:'white',
@@ -28,7 +35,7 @@ class DeliveryList extends Component {
             orders: [
                 ...prevState.orders, {
                     id: id !== null ? id : this.nextId(prevState.orders),
-                    date: date !== null ? date : this.nextId(prevState.orders),
+                    date: date,
                     name: name,
                     city: city
                 }]
@@ -40,8 +47,6 @@ class DeliveryList extends Component {
     }
 
     update(newOrder,i) {
-        console.log(`Update ${i}: newOrder: ${newOrder}`);
-
         this.setState(prevState => ({
             orders: prevState.orders.map(
                 order => order.id !== i ? order :{...order, order: newOrder}
@@ -51,22 +56,22 @@ class DeliveryList extends Component {
 
     eachOrder(item,i) {
         return <Delivery key={i} index={item.id} name={item.name} date={item.date} city={item.city} onChange={this.update} onDelete={this.props.onDelete} onEdit={this.edit}>
-            <div style={{marginTop:'10px', display:'inline-block'}}>
-                <span style={{margin:"30px"}}>{item.id}</span>
-                <span style={{marginRight:"30px"}}>{item.date}</span>
-                <span style={{marginRight:"30px"}}>{item.name}</span>
-                <span style={{marginRight:"30px"}}>{item.city}</span>
-            </div>
+                <TableCell style={{marginLeft:"20px", borderBottom:'none'}}>{item.id}</TableCell>
+                <TableCell style={{marginLeft:"20px" , borderBottom:'none'}}>{item.date}</TableCell>
+                <TableCell style={{marginLeft:"20px", borderBottom:'none'}}>{item.name}</TableCell>
+                <TableCell style={{marginLeft:"20px", borderBottom:'none'}}>{item.city}</TableCell>   
             </Delivery>
         }
 
     render() {
         return (
-            <div style={listStyle}>
-            <p>
-                { this.props.orders.map(this.eachOrder) }
-            </p>
-            </div>
+            <TableContainer component={Paper} style={listStyle}>
+                <Table aria-label="simple table" >
+                    <TableBody>
+                        { this.props.orders.map(this.eachOrder) }
+                    </TableBody>
+                </Table>
+            </TableContainer>
         )
     }
 }

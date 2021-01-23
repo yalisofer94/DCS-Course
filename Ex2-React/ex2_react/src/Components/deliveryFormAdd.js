@@ -17,6 +17,13 @@ const formStyle = {
     marginTop:'104px' 
 }
 
+const buttonStyle = {
+    marginLeft:'123px', 
+    marginTop:'20px', 
+    height:'60px', 
+    width:'158px'
+}
+
 const DeliveryFormAdd = (props) => {
     const emptyDelivery = {id: null, date:'', name:'', city:''};
     const [newDelivery, setNewDelivery] = useState(emptyDelivery);
@@ -74,7 +81,7 @@ const DeliveryFormAdd = (props) => {
                     onChange={inputChange}
                 />
                 <br/>
-                <Button variant="contained" onClick={onSave} color="secondary" style={{marginLeft:'123px', marginTop:'20px', height:'60px', width:'158px'}} size="large">Save</Button>
+                <Button variant="contained" onClick={onSave} color="secondary" style={buttonStyle} size="large">Save</Button>
             </form>
         );
     }

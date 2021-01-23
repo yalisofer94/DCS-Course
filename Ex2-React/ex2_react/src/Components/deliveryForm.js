@@ -15,6 +15,12 @@ const formStyle = {
     marginRight:'114px',
     marginTop:'104px' 
 }
+const buttonStyle = {
+    marginLeft:'123px', 
+    marginTop:'20px', 
+    height:'60px', 
+    width:'158px'
+}
 const DeliveryForm = (props) => {
     const currDelivery = {id:props.id, name:props.name, date:props.date, city:props.city};
     const [updatedDelivery, setUpdatedDelivery] = useState(currDelivery);
@@ -65,7 +71,7 @@ const DeliveryForm = (props) => {
                     style={textFieldStyle}
                 />
                 <br/>
-                <Button variant="contained" onClick={onUpdate} color="secondary" style={{marginLeft:'85px', marginTop:'20px'}} size="large">Update</Button>
+                <Button variant="contained" onClick={onUpdate} color="secondary" style={buttonStyle} size="large">Update</Button>
             </form>
             </div>
         );

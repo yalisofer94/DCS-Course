@@ -76,7 +76,7 @@ class DeliveryContainer extends Component {
         ))
     }
 
-    nextId(orders = []) {
+    nextId(orders) {
         let max = orders.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id, 0);
         return ++max;
     }

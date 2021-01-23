@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import {MdSave} from 'react-icons/md';
 import {MdDelete, MdEdit} from 'react-icons/md';
-import {Fab} from '@material-ui/core';
+import {Fab, TableRow} from '@material-ui/core';
 
 const buttonStyles = {
     border: 'none',
@@ -17,24 +17,19 @@ class Delivery extends Component {
     }
 
     delete() {
-        console.log("Delete it!");
         this.props.onDelete(this.props.index);
     }
 
     edit() {
         this.props.onEdit(this.props.index, this.props.date, this.props.name, this.props.city)
-        console.log("Edit it!");
     }
     render() {
         return (
-            <div className="order">
-                {this.props.children}
-                <span>
+            <TableRow>
+                    {this.props.children}
                         <button onClick={this.edit} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdEdit fontSize="large"/></Fab></button> 
                         <button onClick={this.delete} style={buttonStyles}><Fab size="small" color="secondary" aria-label="delete"><MdDelete fontSize="large"/></Fab></button>
-                </span>
-            </div>
-
+            </TableRow>
         )
     }
 }

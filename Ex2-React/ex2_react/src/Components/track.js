@@ -9,4 +9,5 @@ const Truck = () =>{
             <img src={truck} alt="Truck!" style={truckStyles}/>
         );
     }
+
 export default Truck;
